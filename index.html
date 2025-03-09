@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>B4</title>
+    <style>
+        .center-heading {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    {font-family: Arial}
+    <h1 class="center-heading">Darts Finishing Ways</h1>
+    <form method="POST">
+        <label for="input_value">Type in Rest:</label>
+        <input type="number" name="input_value" id="input_value" required>
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if output_value is not none and output_value|length > 0 %}
+    <h2>Ways: {{ request.form['input_value'] }}</h2>
+    <ul>
+        {% for item in output_value %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <p>Wege für : {{ request.form['input_value'] }}</p> <!-- Anzeige des Input-Werts -->
+    {% endif %}
+    
+    {% if print_solution_message %}
+    <p>{{ print_solution_message }}</p>
+    {% endif %}
+</body>
+</html>
