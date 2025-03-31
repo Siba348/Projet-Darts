@@ -1,34 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>B4</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darts Finishing</title>
+    
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
-        .center-heading {
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #141E30, #243B55);
+            color: white;
             text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            width: 150px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #ff6600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #e65c00;
+        }
+
+        h2 {
+            margin-top: 20px;
+            font-size: 2rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            margin: 5px auto;
+            width: 200px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Bild-Styling */
+        .image-container {
+            margin-top: 30px;
+        }
+
+        .image-container img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-caption {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    {font-family: Arial}
-    <h1 class="center-heading">Darts Finishing Ways</h1>
+    <h1>Darts Finishing</h1>
+    
     <form method="POST">
-        <label for="input_value">Type in Rest:</label>
-        <input type="number" name="input_value" id="input_value" required>
+        <input type="number" name="input_value" id="input_value" required placeholder="Enter a number">
         <button type="submit">Calculate</button>
     </form>
 
     {% if output_value is not none and output_value|length > 0 %}
-    <h2>Ways: {{ request.form['input_value'] }}</h2>
-    <ul>
-        {% for item in output_value %}
-        <li>{{ item }}</li>
-        {% endfor %}
-    </ul>
-    <p>Wege für : {{ request.form['input_value'] }}</p> <!-- Anzeige des Input-Werts -->
+        <h2>Ways: {{ request.form['input_value'] }}</h2>
+        <ul>
+            {% for item in output_value %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        <p>Wege für: {{ request.form['input_value'] }}</p>
     {% endif %}
-    
+
     {% if print_solution_message %}
-    <p>{{ print_solution_message }}</p>
+        <p>{{ print_solution_message }}</p>
     {% endif %}
+
+    <div class="image-container">
+        
+    </div>
 </body>
 </html>
+
